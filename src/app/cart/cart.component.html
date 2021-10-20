@@ -1,0 +1,51 @@
+<h1>Checkout</h1>
+
+{{items.itemname}}*1*{{items.price}}
+<!-- <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Checkout</button> -->
+<div style="width: fit-content;margin: auto;margin-top: 18px;">
+
+    <button type="button" class="btn btn-primary" (click)="openModalWithClass(template)">Checkout</button>
+</div>
+
+<br>
+<ng-template #template>
+
+    <div class="modal-header">
+
+        <h4 class="modal-title pull-left">Modal</h4>
+
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">  
+   
+          <span aria-hidden="true">×</span>  
+ 
+        </button>
+    </div>
+
+    <div class="modal-body">
+
+        <form [formGroup]="profileForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">mobile</label>
+                <input type="mob" formControlName="mob" class="form-control" placeholder="mobile">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">name</label>
+                <input type="mob" formControlName="name" class="form-control" placeholder="name">
+            </div>
+            <button type="submit" (click)=submit(profileForm.value) class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+
+    </div>
+
+</ng-template>
